@@ -21,7 +21,25 @@ window.addEventListener("gamepadconnected", function (e) {
 	var msg = ""; //Message to be sent over the USB (port call) to Teensy
         function pollGamepads() {
 			var gamepads = navigator.getGamepads();
-			msg = String((gamepads[0].axes[0] - rest).toFixed(3)) + String((gamepads[0].axes[2] - rest).toFixed(3)) + String((gamepads[0].axes[1] - rest).toFixed(3)) + String((gamepads[0].buttons[6].value - rest).toFixed(3)) + String((gamepads[0].buttons[7].value - rest).toFixed(3)) + String((gamepads[0].axes[3] - rest).toFixed(3)) + String(parseInt(gamepads[0].buttons[12].value))+String(parseInt(gamepads[0].buttons[13].value))+String(parseInt(gamepads[0].buttons[14].value))+String(parseInt(gamepads[0].buttons[15].value))+String(parseInt(gamepads[0].buttons[0].value))+String(parseInt(gamepads[0].buttons[1].value))+String(parseInt(gamepads[0].buttons[2].value))+String(parseInt(gamepads[0].buttons[3].value))+"?";
+			msg = String((gamepads[0].axes[0] - rest).toFixed(3)) + 
+			      String((gamepads[0].axes[2] - rest).toFixed(3)) + 
+			      String((gamepads[0].axes[1] - rest).toFixed(3)) + 
+			      String((gamepads[0].buttons[6].value - rest).toFixed(3)) + 
+			      String((gamepads[0].buttons[7].value - rest).toFixed(3)) + 
+			      String((gamepads[0].axes[3] - rest).toFixed(3)) + 
+			      String(parseInt(gamepads[0].buttons[12].value)) + 
+			      String(parseInt(gamepads[0].buttons[13].value)) + 
+			      String(parseInt(gamepads[0].buttons[14].value)) + 
+			      String(parseInt(gamepads[0].buttons[15].value)) + 
+			      String(parseInt(gamepads[0].buttons[0].value)) + 
+			      String(parseInt(gamepads[0].buttons[1].value)) + 
+			      String(parseInt(gamepads[0].buttons[2].value)) + 
+			      String(parseInt(gamepads[0].buttons[3].value)) + 
+			      String(parseInt(gamepads[0].buttons[4].value)) +
+     			      String(parseInt(gamepads[0].buttons[5].value)) +
+			      String(parseInt(gamepads[0].buttons[10].value)) +
+     			      String(parseInt(gamepads[0].buttons[11].value)) +
+			      "?";
 			//console.log(String((gamepads[0].buttons[6]).toFixed(3)));
 			socket.emit('send',msg);
 		}
